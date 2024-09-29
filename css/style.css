@@ -1,0 +1,16 @@
+.navbar {
+    background-color: #ffefd5;
+}
+
+footer {
+    height: 50px;
+    background-color: antiquewhite;
+}
+
+footer > p {
+    line-height: 50px;
+}
+
+.fix-page-height {
+    min-height: 87vh;
+}
