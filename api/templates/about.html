@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}О нас{% endblock %}
+
+{% block content %}
+<div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h3 style="text-align: center;">Наша миссия</h3>
+                <p>Мы верим, что каждая собака заслуживает шанс на счастливую жизнь. В приюте "Лапа помощи" мы:</p>
+                <ul>
+                    <li>Спасаем и лечим бездомных животных.</li>
+                    <li>Помогаем им социализироваться и найти дом.</li>
+                    <li>Организуем программы по стерилизации и вакцинации.</li>
+                    <li>Ведем просветительскую работу по ответственному отношению к животным.</li>
+                </ul>
+            </div>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col-md-12">
+                <h3 style="text-align: center;">Наши подопечные ждут вас!</h3>
+                <p>Каждая собака в нашем приюте мечтает о своем человеке.</p>
+                <p style="text-align: center;">
+                    <video width="720" height="480" controls>
+                        <source src="{{ url_for ('static', filename='imgs/dogs.mp4') }}" type="video/mp4">
+                    </video>
+                </p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

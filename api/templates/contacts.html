@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}О нас{% endblock %}
+
+{% block content %}
+<div class="container fix-page-height">
+    <div class="row">
+        <div class="col-md-12">
+            <h3 style="text-align: center;">Как с нами связаться:</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <h6 style="text-align: center;">Контакты:</h6>
+            <p><i class="fa-solid fa-envelope"></i> E-mail: priyut@lapapomoschi.ru</p>
+            <p><i class="fa-solid fa-phone"></i> Телефон: +7 812 123 45 67</p>
+        </div>
+        <div class="col-md-6">
+            <h6 style="text-align: center;">Карта:</h6>
+            <iframe
+                    src="https://yandex.ru/map-widget/v1/?um=constructor%3A3859918b271a577f43383ca2e0d8e1659df7243f68d8baddc9d588d814fea6b9&amp;source=constructor"
+                    width="500" height="400" frameborder="0"></iframe>
+        </div>
+    </div>
+</div>
+{% endblock %}
