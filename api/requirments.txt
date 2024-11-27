@@ -5,3 +5,5 @@ Werkzeug==2.3.7
 Pytz>=0.0.0
 Email-validator>=0.0.0
 Flask-session>=0.0.0
+requests>=0.0.0
+

@@ -8,6 +8,8 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_session import Session
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_wtf.csrf import CSRFProtect
+import requests as hrequests
+
 
 app = Flask(__name__)
 
@@ -119,7 +121,9 @@ def create_sample_posts_with_comments():
         # Создаем посты
         post1 = Post(title="Добро пожаловать в наш блог", content="Это первый пост в блоге.", author_id=admin.id)
         post2 = Post(title="День открытых дверей",
-                     content="Скоро в нашем приюте пройдет день открытых дверей, где вы сможете поближе познакомиться с нашими питомцами!", author_id=admin.id)
+                     content="Скоро в нашем приюте пройдет день открытых дверей, где вы сможете поближе познакомиться с нашими питомцами!",
+                     author_id=admin.id)
+
         db.session.add(post1)
         db.session.add(post2)
         db.session.commit()
@@ -136,6 +140,30 @@ def create_sample_posts_with_comments():
         print("Данные добавлены.")
     else:
         print("Данные уже существуют.")
+
+
+def get_weather(city):
+    url = f"http://wttr.in/{city}?format=j1"  # JSON-формат
+    try:
+        response = hrequests.get(url)
+        response.raise_for_status()
+        data = response.json()
+        weather = {
+            "city": city,
+            "temperature": data["current_condition"][0]["temp_C"],  # Температура в °C
+            "description": data["current_condition"][0]["weatherDesc"][0]["value"]  # Описание погоды
+        }
+        return weather
+    except hrequests.RequestException as e:
+        print(f"Ошибка получения данных о погоде: {e}")
+        return None
+
+
+@app.context_processor
+def inject_weather():
+    weather = get_weather(city="Saint-Petersburg")
+    return dict(weather=weather)
+
 
 
 @app.route('/')
