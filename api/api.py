@@ -10,6 +10,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_wtf.csrf import CSRFProtect
 import requests as hrequests
 
+
 app = Flask(__name__)
 
 # Конфигурация приложения
@@ -122,6 +123,7 @@ def create_sample_posts_with_comments():
         post2 = Post(title="День открытых дверей",
                      content="Скоро в нашем приюте пройдет день открытых дверей, где вы сможете поближе познакомиться с нашими питомцами!",
                      author_id=admin.id)
+
         db.session.add(post1)
         db.session.add(post2)
         db.session.commit()
@@ -161,6 +163,7 @@ def get_weather(city):
 def inject_weather():
     weather = get_weather(city="Saint-Petersburg")
     return dict(weather=weather)
+
 
 
 @app.route('/')
