@@ -6,6 +6,12 @@
 <div class="container">
     <br/>
     <div class="row">
+        {% if weather %}
+            <p style="text-align: center">
+                Погода: {{ weather.city }} {{ weather.temperature }}°C, {{ weather.description }}
+            </p>
+        {% endif %}
+        <br/>
         <div class="col-md-6">
             <p style="text-align: center;">
                 <img src="{{ url_for('static', filename='imgs/dogs.webp') }}" width="70%"/>

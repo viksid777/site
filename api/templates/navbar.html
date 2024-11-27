@@ -32,9 +32,9 @@
                 <!-- Отображение текущего пользователя -->
                 {% if session.logged_in %}
                 <li class="nav-item">
-                        <p class="navbar-text" style="margin-right: 15px">
-                            Привет, {{ session.user }}
-                        </p>
+                    <p class="navbar-text" style="margin-right: 15px">
+                        Привет, {{ session.user }}
+                    </p>
                 </li>
                 <li class="nav-item">
                     <form action="{{ url_for('logout') }}" method="post" style="display: inline;">
